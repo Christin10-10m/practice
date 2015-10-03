@@ -48,13 +48,16 @@ babycow
 #     self.selected = []
 
 def play():
-    selected = []
+    matched = []
     # grid = random.sample(cards, len(cards))
     grid = cards
     while True:
+        if len(matched) == len(grid):
+            print "You have matched all the animals!"
+            break
         while True:
             i = int(raw_input("choose a numbered tile!"))
-            if i not in selected:
+            if i not in matched:
                 print "You picked %s" %grid[i-1].name
                 break
             else:
@@ -64,23 +67,26 @@ def play():
             k = int(raw_input("choose another numbered tile!"))
             if k == i:
                 print "Sorry, you cannot guess the same tile twice."
-            if i not in selected:
+            if i not in matched:
                 print "You picked %s" %grid[k-1].name
                 break
             else:
                 print "This number in unavailable, pick again."
 
         if k != i and grid[i-1].kind == grid[k-1].kind:
-            selected.append(k)
-            selected.append(i)
+            matched.append(k)
+            matched.append(i)
             print "it's a match!"
-            print selected
+            print matched
         else:
             if grid[i-1].kind != grid[k-1].kind:
                 print "Sorry, these tiles aren't a match"
 play()
 
-
+# when selected list = 16, game is over.
+# When index is on selected list, it is removed from grid. 
+# print index of grid after each match.
+# Play again? 
 
 
   
