@@ -50,12 +50,11 @@ def print_grid(grid, matched):
             characters.append("*")
         else:
             characters.append(x)
-    print characters
+    return characters
 
 def play():
     matched = []
-    # grid = random.sample(cards, len(cards))
-    grid = cards
+    grid = random.sample(cards, len(cards))
     print_grid(grid, matched)
     while True:
         if len(matched) == len(grid):
@@ -83,16 +82,19 @@ def play():
         if k != i and grid[i-1].kind == grid[k-1].kind:
             matched.append(k)
             matched.append(i)
-            print "it's a match!"
-            print "matched\n", matched
-            print "grid\n", print_grid(grid, matched)
+            print "it's a match!\n", print_grid(grid, matched)
         else:
             if grid[i-1].kind != grid[k-1].kind:
                 print "Sorry, these tiles aren't a match"
-play()
 
 
-# Play again? 
+while True:
+    play()
+    y = raw_input("Want to play again? (y/n)")
+    if y != "y":
+        break
+
+
 
 
   
