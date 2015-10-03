@@ -42,19 +42,26 @@ cow,
 babycow
 ]
 
-# class Grid(object):
-#   def __init__(cards):
-#     self.cards = cards
-#     self.selected = []
+
+def print_grid(grid, matched):
+    characters =[]
+    for x in range (1, len(grid) + 1):
+        if x in matched:
+            characters.append("*")
+        else:
+            characters.append(x)
+    print characters
 
 def play():
     matched = []
     # grid = random.sample(cards, len(cards))
     grid = cards
+    print_grid(grid, matched)
     while True:
         if len(matched) == len(grid):
             print "You have matched all the animals!"
             break
+
         while True:
             i = int(raw_input("choose a numbered tile!"))
             if i not in matched:
@@ -77,15 +84,14 @@ def play():
             matched.append(k)
             matched.append(i)
             print "it's a match!"
-            print matched
+            print "matched\n", matched
+            print "grid\n", print_grid(grid, matched)
         else:
             if grid[i-1].kind != grid[k-1].kind:
                 print "Sorry, these tiles aren't a match"
 play()
 
-# when selected list = 16, game is over.
-# When index is on selected list, it is removed from grid. 
-# print index of grid after each match.
+
 # Play again? 
 
 
