@@ -50,14 +50,21 @@ def print_grid(grid, matched):
             characters.append("*")
         else:
             characters.append(x)
-    return characters
+    print "-------------------"
+    print " %s  | %s  | %s  | %s " % (characters[0], characters[1], characters[2], characters[3])
+    print "-------------------"
+    print " %s  | %s  | %s  | %s" % (characters[4], characters[5], characters[6], characters[7])
+    print "-------------------"
+    print " %s  | %s | %s | %s" % (characters[8], characters[9], characters[10], characters[11])
+    print "-------------------"
+    print " %s | %s | %s | %s" % (characters[12], characters[13], characters[14], characters[15])
+    print "-------------------"
 
 def play():
     matched = []
     grid = random.sample(cards, len(cards))
-    print_grid(grid, matched)
     while True:
-        print print_grid(grid, matched)
+        print_grid(grid, matched)
         if len(matched) == len(grid):
             print "You have matched all the animals!"
             break
