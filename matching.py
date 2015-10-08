@@ -74,7 +74,7 @@ def play():
             k = int(raw_input("choose another numbered tile!"))
             if k == i:
                 print "Sorry, you cannot guess the same tile twice."
-            if i not in matched:
+            if k not in matched:
                 print "You picked %s" %grid[k-1].name
                 break
             else:
