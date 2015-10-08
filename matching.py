@@ -57,6 +57,7 @@ def play():
     grid = random.sample(cards, len(cards))
     print_grid(grid, matched)
     while True:
+        print print_grid(grid, matched)
         if len(matched) == len(grid):
             print "You have matched all the animals!"
             break
@@ -82,7 +83,7 @@ def play():
         if k != i and grid[i-1].kind == grid[k-1].kind:
             matched.append(k)
             matched.append(i)
-            print "it's a match!\n", print_grid(grid, matched)
+            print "it's a match!"
         else:
             if grid[i-1].kind != grid[k-1].kind:
                 print "Sorry, these tiles aren't a match"
