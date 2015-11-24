@@ -50,9 +50,9 @@ def print_grid(grid, matched):
             characters.append("*")
         else:
             characters.append(x)
-    print "******************************************"
-    print "* Match the parent with the baby animal! *"
-    print "******************************************"
+    print "*************************************************"
+    print "* Match the parent animal with the baby animal! *"
+    print "*************************************************" 
     print "-------------------"
     print " %s  | %s  | %s  | %s " % (characters[0], characters[1], characters[2], characters[3])
     print "-------------------"
@@ -76,11 +76,6 @@ def play():
             i = int(raw_input("choose a numbered tile!"))
             if i not in matched:
                 print "You picked %s" %grid[i-1].name
-                break
-            else:
-                print "This number in unavailable, pick again."
-                    
-        while True: 
             k = int(raw_input("choose another numbered tile!"))
             if k == i:
                 print "Sorry, you cannot guess the same tile twice."
@@ -97,7 +92,6 @@ def play():
         else:
             if grid[i-1].kind != grid[k-1].kind:
                 print "Sorry, these tiles aren't a match"
-
 
 while True:
     play()
